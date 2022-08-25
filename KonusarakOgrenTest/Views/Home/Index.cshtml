@@ -1,0 +1,36 @@
+﻿@model List<KonusarakOgren.Entities.Products>;
+@{
+    ViewData["Title"] = "Home Page";
+
+}
+<style>
+    .card{
+        display:inline-block !important;
+    }
+</style>
+<div class="text-center">
+
+    <div class="alert alert-success alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> @TempData["SuccessMes"]
+    </div>
+
+    @if (Model.Count > 0)
+    {
+        foreach (var item in Model)
+        {
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">@item.ProductName</h5>
+                    <p class="card-text">@item.Price + "tldir. Rengi: " @item.Color </p>
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <h3>Ürün bulunmamaktadır.</h3>
+    }
+
+</div>
